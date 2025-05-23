@@ -1,0 +1,122 @@
+<section id="features" class="features section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Services Offered</h2>
+    <p>From maritime consulting to tech development, GEM delivers tailored services that drive growth, efficiency, and
+      innovation across global operations.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="d-flex justify-content-center">
+
+      <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
+
+        <li class="nav-item" (click)="selectService(Service.CONSULTING.name)">
+          <a class="nav-link show" data-bs-toggle="tab" data-bs-target="#features-tab-1"
+             [ngClass]="{active: this.selectedService === Service.CONSULTING.name}">
+            <h4>Consulting Services</h4>
+          </a>
+        </li><!-- End tab nav item -->
+
+        <li class="nav-item" (click)="selectService(Service.TECHNOLOGY_REVIEWS.name)">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2"
+             [ngClass]="{active: this.selectedService === Service.TECHNOLOGY_REVIEWS.name}">
+            <h4>Technology Reviews</h4>
+          </a><!-- End tab nav item -->
+
+        </li>
+        <li class="nav-item" (click)="selectService(Service.TECHNOLOGY_DEVELOPMENT.name)">
+          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3"
+             [ngClass]="{active: this.selectedService === Service.TECHNOLOGY_DEVELOPMENT.name}">
+            <h4>Technology Development</h4>
+          </a>
+        </li><!-- End tab nav item -->
+
+      </ul>
+
+    </div>
+
+    <div class="tab-content services" data-aos="fade-up" data-aos-delay="200">
+
+      @if (selectedService === Service.CONSULTING.name) {
+        <div class="tab-pane fade active show" id="features-tab-1">
+          <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+              <h3>{{ Service.CONSULTING.name }}</h3>
+              <p class="fst-italic">
+                GEM provides a range of consulting and advisory services. These include:
+              </p>
+              <div class="service_list">
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> <span>Strategic Planning</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Branding Reviews</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Marketing Strategies</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Feasibility Studies</span></li>
+                </ul>
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> <span>Company Restructuring Planning</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Technology Reviews</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Resource Planning</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Head Hunting Services</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <img src="assets/img/feature_illustration-1.svg" alt="" class="img-fluid">
+            </div>
+          </div>
+        </div><!-- End tab content item -->
+      } @else if (selectedService === Service.TECHNOLOGY_REVIEWS.name) {
+        <div class="tab-pane fade active show" id="features-tab-2">
+          <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+              <h3>{{ Service.TECHNOLOGY_REVIEWS.name }}</h3>
+              <p class="fst-italic">
+                GEM's tech has a very agnostic vision in terms of technology.
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-all"></i>
+                  <span>Our approach is driven by a consultative process, first establishing the client’s requirements, identifying their pain points, and areas where a combination of business re-engineering and technology can resolve the issues being faced.</span>
+                </li>
+                <li><i class="bi bi-check2-all"></i>
+                  <span>We can help customers define and scope RFIs and RFPs, working to map business requirements and identify best-of-breed technology vendors.</span>
+                </li>
+                <li><i class="bi bi-check2-all"></i> <span>We work with our clients in identifying and vetting vendors, measuring their performance, product suitability, and capabilities to deliver.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <img src="assets/img/feature-illustration-2.svg" alt="" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      } @else if (selectedService === Service.TECHNOLOGY_DEVELOPMENT.name) {
+        <div class="tab-pane fade active show" id="features-tab-3">
+          <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+              <h3>{{ Service.TECHNOLOGY_DEVELOPMENT.name }}</h3>
+              <p class="fst-italic">
+                GEM has access to skilled technical resources located in key geographical locations.
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-all"></i>
+                  <span>We can provide bespoke software, working closely with clients to define functional specifications. We use the latest development tools and platforms to deliver an agile solution that meets the client's requirements.</span>
+                </li>
+                <li><i class="bi bi-check2-all"></i>
+                  <span>We have expertise in all the latest development tools.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <img src="assets/img/feature-illustration-3.svg" alt="" class="img-fluid">
+            </div>
+          </div>
+        </div><
+      }
+    </div>
+
+  </div>
+
+</section>
