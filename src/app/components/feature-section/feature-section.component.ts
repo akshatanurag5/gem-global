@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Service} from "../../constants/app.const";
+import {SECTION_IDS, Service} from "../../constants/app.const";
 import {NgClass} from "@angular/common";
 
 @Component({
@@ -20,4 +20,5 @@ export class FeatureSectionComponent {
   }
 
   protected readonly Service = Service;
+  protected readonly SECTION_IDS = SECTION_IDS;
 }

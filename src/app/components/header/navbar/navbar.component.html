@@ -1,19 +1,21 @@
 <nav id="navmenu" class="navmenu">
   <ul>
-    <li><a href="#hero" class="active">Home</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li><a href="#features">Our Team</a></li>
-    <li class="dropdown"><a href="#"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+    <li><a [href]="'#' + SECTION_IDS.hero" [class.active]="activeSection === SECTION_IDS.hero">Home</a></li>
+    <li><a [href]="'#' + SECTION_IDS.about" [class.active]="activeSection === SECTION_IDS.about">About Us</a></li>
+    <li><a [href]="'#' + SECTION_IDS.partners" [class.active]="activeSection === SECTION_IDS.partners">Our Partners</a></li>
+    <li><a [href]="'#' + SECTION_IDS.services" [class.active]="activeSection === SECTION_IDS.services">Services Offered</a></li>
+    <li><a [href]="'#' + SECTION_IDS.team" [class.active]="activeSection === SECTION_IDS.team">Our Team</a></li>
+
+<!--    <li class="dropdown">
+      <a href="#"><span>Services</span></a>
       <ul>
         <li><a href="#">Consulting Services</a></li>
         <li><a href="#">Technology Development</a></li>
         <li><a href="#">Technology Reviews</a></li>
       </ul>
-    </li>
-    <li><a href="#services">Partner Links</a></li>
-    <li><a href="#pricing">News & Updates</a></li>
-
-    <li><a href="#contact">Contact Us</a></li>
+    </li>-->
+    <li><a [href]="'#' + SECTION_IDS.news" [class.active]="activeSection === SECTION_IDS.news">News & Updates</a></li>
+    <li><a [href]="'#' + SECTION_IDS.contact" [class.active]="activeSection === SECTION_IDS.contact">Contact Us</a></li>
   </ul>
   <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 </nav>

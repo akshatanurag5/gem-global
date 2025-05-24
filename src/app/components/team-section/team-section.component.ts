@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import {SECTION_IDS} from "../../constants/app.const";
 
 @Component({
-  selector: 'app-about-us',
+  selector: 'app-team-section',
   standalone: true,
   imports: [],
-  templateUrl: './about-us.component.html',
-  styleUrl: './about-us.component.scss'
+  templateUrl: './team-section.component.html',
+  styleUrl: './team-section.component.scss'
 })
-export class AboutUsComponent {
+export class TeamSectionComponent {
 
   protected readonly SECTION_IDS = SECTION_IDS;
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {SECTION_IDS} from "../../../constants/app.const";
 
 @Component({
   selector: 'app-navbar',
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-
+  @Input() activeSection: string = '';
+  protected readonly SECTION_IDS = SECTION_IDS;
 }

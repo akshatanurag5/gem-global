@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NavbarComponent} from "./navbar/navbar.component";
 
 @Component({
@@ -11,5 +11,6 @@ import {NavbarComponent} from "./navbar/navbar.component";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @Input() activeSection: string = "";
 
 }
