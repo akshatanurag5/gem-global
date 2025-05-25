@@ -104,3 +104,13 @@ h6 {
 :root {
   scroll-behavior: smooth;
 }
+
+.required_field_label:after {
+  content: " *";
+  color: var(--bs-red);
+}
+
+.form_error{
+  border: 1px solid var(--bs-red) !important;
+  /* background-color: #e3003408; */
+}

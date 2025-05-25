@@ -52,33 +52,145 @@
       <div class="col-lg-7">
         <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
           <h3>Get In Touch</h3>
-<!--          <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>-->
+          <!--          <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>-->
 
-          <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          <form [formGroup]="contactUsForm" class="php-email-form" data-aos="fade-up" data-aos-delay="200"
+                (ngSubmit)="handleContactFormSubmit()"
+          >
             <div class="row gy-4">
 
               <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                <label for="name" class="required_field_label">Name</label>
+                <input id="name" type="text" class="form-control" placeholder="Your Name" formControlName="name"
+                       [ngClass]="{
+            form_error:
+              contactUsForm.get('name')?.invalid &&
+              contactUsForm.get('name')?.touched &&
+              contactUsForm.get('name')?.errors
+          }"
+                >
+                <div *ngIf="contactUsForm.get('name')?.touched && contactUsForm.get('name')?.invalid"
+                     class="text-danger">
+                  Name is required.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="required_field_label">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  class="form-control"
+                  placeholder="Your Email"
+                  formControlName="email"
+                  [ngClass]="{
+      form_error:
+        contactUsForm.get('email')?.invalid &&
+        contactUsForm.get('email')?.touched
+    }"
+                />
+
+                <div *ngIf="contactUsForm.get('email')?.touched && contactUsForm.get('email')?.errors"
+                     class="text-danger">
+                  <div *ngIf="contactUsForm.get('email')?.errors?.['required']">Email is required.</div>
+                  <div *ngIf="contactUsForm.get('email')?.errors?.['email']">Please enter a valid email address.</div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="phone" class="required_field_label">Mobile Number</label>
+                <input
+                  id="phone"
+                  type="text"
+                  class="form-control"
+                  placeholder="Your Mobile Number"
+                  formControlName="phone"
+                  [ngClass]="{
+      form_error:
+        contactUsForm.get('phone')?.invalid &&
+        contactUsForm.get('phone')?.touched
+    }"
+                />
+
+                <div *ngIf="contactUsForm.get('phone')?.touched && contactUsForm.get('phone')?.invalid"
+                     class="text-danger">
+                  <div *ngIf="contactUsForm.get('phone')?.errors?.['required']">Mobile number is required.</div>
+                  <div *ngIf="contactUsForm.get('phone')?.errors?.['pattern']">
+                    Enter a valid mobile number.
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-6">
+                <label for="company" class="">Company</label>
+                <input id="company" type="text" name="name" class="form-control" placeholder="Your Company"
+                       formControlName="company">
+              </div>
+              <div class="col-md-6">
+                <label for="position" class="">Position</label>
+                <input id="position" type="text" name="name" class="form-control" placeholder="Your Position"
+                       formControlName="position">
               </div>
 
               <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                <label class="">Areas Of Interest</label>
+
+                <div *ngFor="let area of areasOfInterestList">
+                  <input
+                    type="checkbox"
+                    [value]="area"
+                    (change)="onCheckboxChange($event)"
+                  />
+                  {{ area }}
+                </div>
               </div>
 
               <div class="col-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                <label for="subject" class="required_field_label">Subject</label>
+                <input id="subject" type="text" class="form-control" placeholder="Subject" formControlName="subject"
+                       [ngClass]="{
+            form_error:
+              contactUsForm.get('subject')?.invalid &&
+              contactUsForm.get('subject')?.touched &&
+              contactUsForm.get('subject')?.errors
+          }"
+                >
+                <div *ngIf="contactUsForm.get('subject')?.touched && contactUsForm.get('subject')?.invalid"
+                     class="text-danger">
+                  Subject is required.
+                </div>
               </div>
 
               <div class="col-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                <label for="message" class="required_field_label">Message</label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  rows="6"
+                  placeholder="Message"
+                  formControlName="message"
+                  [ngClass]="{form_error:contactUsForm.get('message')?.invalid &&contactUsForm.get('message')?.touched}"
+                ></textarea>
+
+                <div *ngIf="contactUsForm.get('message')?.touched && contactUsForm.get('message')?.invalid"
+                     class="text-danger">
+                  Message is required.
+                </div>
               </div>
+
 
               <div class="col-12 text-center">
-<!--                <div class="loading">Loading</div>-->
-<!--                <div class="error-message"></div>-->
-<!--                <div class="sent-message">Your message has been sent. Thank you!</div>-->
-
-                <button type="submit" class="btn">Send Message</button>
+                <!--                <div class="loading">Loading</div>-->
+                @if(showFormMessage){
+                  @if(emailSent){
+                    <div class="text-bg-success" style="border-radius: 8px">Your message has been sent. Thank you!</div>
+                  } @else {
+                    <div class="text-bg-warning" style="border-radius: 8px">Failed! While sending your message. Please try again later. </div>
+                  }
+                }<br/>
+                <button type="submit" class="btn"
+                        [disabled]="isSending">{{ isSending ? 'Sending...' : 'Send Message' }}
+                </button>
               </div>
 
             </div>
