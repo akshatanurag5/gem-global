@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {NavbarComponent} from "./navbar/navbar.component";
+import {SECTION_IDS} from "../../constants/app.const";
 
 @Component({
   selector: 'app-header',
@@ -13,4 +14,5 @@ import {NavbarComponent} from "./navbar/navbar.component";
 export class HeaderComponent {
   @Input() activeSection: string = "";
 
+  protected readonly SECTION_IDS = SECTION_IDS;
 }
