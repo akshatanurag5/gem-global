@@ -28,8 +28,6 @@ export class AppComponent {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-
-
     for (const id of Object.values(SECTION_IDS)) {
       const section = document.getElementById(id);
       if (section) {
