@@ -32,7 +32,7 @@ export class AppComponent {
       const section = document.getElementById(id);
       if (section) {
         const rect = section.getBoundingClientRect();
-        if (rect.top <= 200 && rect.bottom > 200) {
+        if (rect.top <= 50 && rect.bottom > 50) {
           this.activeSection = id;
           break;
         }
