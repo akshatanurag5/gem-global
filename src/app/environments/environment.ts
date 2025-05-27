@@ -1,8 +1,8 @@
 export const environment = {
   emailJsConfig: {
-    serviceId: 'service_2j5le1p',
-    contactUsTemplateId: 'template_7h9oxmf',
-    subscribeTemplateId: 'template_qlx8tkh',
-    publicKey: 'W4QIf5pC_pPjrHhkc'
+    serviceId: 'service_27km5pl',
+    contactUsTemplateId: 'template_ta1s389',
+    subscribeTemplateId: 'template_fadjpie',
+    publicKey: 'TVDRiblBBGqlGtmjX'
   },
 };
