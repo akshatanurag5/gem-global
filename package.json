@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build:dev": "ng build --configuration development",
-    "build:prod": "ng build --configuration production",
-    "deploy": "ng build --configuration production --base-href /gem-global/ && npx angular-cli-ghpages --dir=dist/gem-global/browser",
+    "build:prod": "ng build --configuration production;echo 'Zipping gem-global-prod...'; cd dist/gem-global && zip -r ../../builds/gem-global-prod.zip browser;echo 'Zipped gem-global-prod.zip and placed it in builds/ !'; ",
+    "deploy:prod": "echo 'GEM Global Prod build...'; scp -r builds/gem-global-prod.zip ubuntu@3.23.155.176:/home/ubuntu/gemglobal-website; ssh ubuntu@3.23.155.176 'unzip -o /home/ubuntu/gemglobal-website/gem-global-prod.zip -d /home/ubuntu/gemglobal-website/'; echo 'Gem Global Prod deployment completed!'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
